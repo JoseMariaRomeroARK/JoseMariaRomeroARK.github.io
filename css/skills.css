@@ -1,0 +1,62 @@
+table.skills{
+	margin-left: 80px;
+	font-size: 16px;
+}
+
+.skills tr{
+	margin: 10px 5px;
+}
+
+span.background{
+	background-color: #e2ebff;
+	height: 12px;
+	width: 170px;
+	display: inline-table;
+	padding: 0px;
+	margin-left: 20px;
+	margin-bottom: 7px;
+}
+
+span.level{
+	background-color: #9ec9ff;
+	height: 12px;
+	margin: 0px;
+    display: block;
+    width: 0%;
+    transition: 0.6s;
+	  -webkit-transition:0.6s;
+      -moz-transition:0.6s;
+      -o-transition:0.6s;
+      -ms-transition:0.6s;
+}
+
+#animationTrigger:hover span.level.l-1{
+    width: 10%;
+}
+#animationTrigger:hover span.level.l-2{
+	width: 20%;
+}
+#animationTrigger:hover span.level.l-3{
+	width: 30%;
+}
+#animationTrigger:hover span.level.l-4{
+	width: 40%;
+}
+#animationTrigger:hover span.level.l-5{
+	width: 50%;
+}
+#animationTrigger:hover span.level.l-6{
+	width: 60%;
+}
+#animationTrigger:hover span.level.l-7{
+	width: 70%;
+}
+#animationTrigger:hover span.level.l-8{
+	width: 80%;
+}
+#animationTrigger:hover span.level.l-9{
+	width: 90%;
+}
+#animationTrigger:hover span.level.l-10{
+	width: 100%;
+}

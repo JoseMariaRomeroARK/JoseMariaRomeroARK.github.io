@@ -1,0 +1,135 @@
+
+/*{border:1px black solid;}*/
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background-color: #f7f9ff;
+}
+
+a, 
+a:visited{
+  color:#000000;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+
+header {
+  padding: 20px 10px;
+  position: fixed;
+  top:0px;
+  z-index: 1000;
+  background-color: #fff;
+  width:100%;
+  border-bottom: 3px #e2ebff solid;
+}
+
+header .row,
+footer .row {
+  display: flex;
+  align-items: center;
+}
+
+header h1 {
+  font-weight: 400;
+  margin: 0;
+
+}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav p{
+
+}
+
+header p {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.jumbotron {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  background-image: url('resources/imgs/ApplicationPicture.jpg');
+  background-size: cover;
+  color: #ffffff;
+  height: 500px;
+  text-shadow: 1px 1px 0.25px #000000;
+  box-shadow: lightblue 0px 5px 10px 2px;
+}
+
+.jumbotron h2 {
+  font-size: 60px;
+  font-weight: 700;
+  margin: 0;
+  color: #9ec9ff;
+}
+
+.jumbotron h3 {
+  margin: 0 0 20px;
+  color: #9ec9ff;
+}
+
+#venta{
+  background-image: url('resources/imgs/venta.png');
+}
+#clinic{
+  background-image: url('resources/imgs/clinic.png');
+}
+section div.row{
+    margin-top: 30px;
+}
+
+.title{
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom-color: #e2ebff;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  margin-bottom: 25px;
+}
+
+figure img{
+  width: 100%;
+  /*shadow color, X,Y,Blur,Spread*/
+  box-shadow: lightblue 2px 4px 9px 0px;
+}
+
+
+.position,
+.titulation{
+  font-size: 18px;
+}
+.date{
+  color: #4683ce;
+  font-weight: 500;
+}
+
+.col-md-6 {
+  margin: 0 0 30px;
+}
+
+footer {
+  font-size: 12px;
+  padding: 20px 0;
+
+}
+
+footer .col-sm-4 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer li img {
+  width: 32px;
+  height: 32px;
+}
