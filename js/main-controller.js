@@ -5,7 +5,14 @@ document.write("<script type='text/javascript' src='js/skill-display-controller.
 window.onload = function(){
 	var loc = window.location.pathname.split("/");
 	if (window.location.hostname == "josemariaromeroark.github.io") {
-		if (loc[1]=="" || loc[1]=="index.html" ) {}
+		if (loc[1]=="" || loc[1]=="index.html" ) {
+			var HTML_Tsk = document.getElementById("Tsk");
+			HTML_Tsk.appendChild(create_tech_skill_set());
+			var HTML_Psk = document.getElementById("Psk");
+			HTML_Psk.appendChild(create_personal_skill_set());
+			diplay_jobs();
+			sizeController();
+		}
 	}else if(loc[loc.length -1] == "index.html" ){
 		var HTML_Tsk = document.getElementById("Tsk");
 		HTML_Tsk.appendChild(create_tech_skill_set());
