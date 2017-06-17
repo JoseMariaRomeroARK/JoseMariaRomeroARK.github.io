@@ -34,27 +34,5 @@ function window_screen_controller(){
 }
 
 function sizeController(){
-	var w = window.outerWidth;
-	var all_tables = document.getElementsByClassName("all");
-	var even_tables = document.getElementsByClassName("even");
-	var odd_tables = document.getElementsByClassName("odd");
-	/*783min prot*/
-	if(w >= 783){
-		for (var i =0; i < all_tables.length ; i++) {
-			all_tables[i].style.display="none";
-		}
-		for (var i =0; i < even_tables.length ; i++) {
-			even_tables[i].style.display="inline-block";
-			odd_tables[i].style.display="inline-block";
-		}
-	}else{
-		for (var i =0; i < all_tables.length ; i++) {
-			all_tables[i].style.display="inline-block";
-		}
-		for (var i =0; i < even_tables.length ; i++) {
-			even_tables[i].style.display="none";
-			odd_tables[i].style.display="none";
-		}
-	}	
-
+	
 }
