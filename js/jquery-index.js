@@ -13,13 +13,13 @@ $(document).ready(function(){
 	    /*getting the height of the window and by adding the scroll position we get where is the bottom of the view*/
 	    var elemTop = $(elem).offset().top;
 	    var elemBottom = elemTop + $(elem).height();
-	    if (($(window).height()>= $(elem).height())) {
+	    /*if (($(window).height()>= $(elem).height())) {
 	    	return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));	    	
-	    }else{
+	    }else{*/
 	    	var top = ((docViewTop<=elemTop)&&(docViewBottom>=elemTop));/**/
 	    	var middle = ((docViewTop>elemTop)&&(docViewBottom<elemBottom));/**/
 	    	var bottom = ((docViewBottom>=elemBottom)&&(docViewTop<=elemBottom));/**/
 	    	return (top || middle || bottom);	    	
-	    }
+	    //}
 	}
 });
