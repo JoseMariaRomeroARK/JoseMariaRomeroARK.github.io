@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>JQuery To do List</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+		<h2>JQuery To do List</h2>
+		<form name="checkListForm">
+			<input type="text" name="checkListItem" placeholder="Something to do??" />
+			<input type="submit" id="button" value="Add!"/>
+			<label>Total items: <span id="total"></span></label>
+			<label>Unfinished items: <span id="unfinished"></span></label>
+		</form>
+		
+		<br/>
+		<div class="list-container" >
+			<ul class="list">
+				<li class='item'>
+        		    <label class='done-container'>
+        			    <input type='checkbox' class='done'/>Done</label>
+        		    <div class='close'>X</div>
+        		    <div class='text'>Add new items to my list</div>
+            	</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>

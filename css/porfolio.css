@@ -10,3 +10,9 @@
 #clinic h3{
 	color: #8a4c4f;
 }
+iframe.frame{
+    width: 100%;
+    height: 400px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
