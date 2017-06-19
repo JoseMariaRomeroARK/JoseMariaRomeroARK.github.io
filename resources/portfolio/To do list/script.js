@@ -1,7 +1,5 @@
 $(document).ready(function(){
     var $input = $('input[type=text][name=checkListItem]');
-    $input.focus();
-    /**/
     $('.list').sortable();
     /**/
     var $total = $('#total');
