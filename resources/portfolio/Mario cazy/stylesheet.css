@@ -12,3 +12,37 @@ img {
 	z-index: 0;
 	height: 50px;
 }
+.pad-container,
+.arrow-container{
+	position: absolute;
+}
+.pad-container #dpad{
+	position: absolute;
+    width: 200px;
+    z-index: 0;
+}
+.arrow{
+	border: 1px solid red;
+    width: 60px;
+    height: 60px;
+	z-index: 500;
+}
+.u{
+	position: relative;
+    left: 70px;
+}
+.r{
+	position: relative;
+    left: 138px;
+    top: 6px;
+}
+.d{
+	position: relative;
+    left: 69px;
+    top: 13px;
+}
+.l{
+	position: relative;
+    left: 0px;
+    top: -118px;
+}
