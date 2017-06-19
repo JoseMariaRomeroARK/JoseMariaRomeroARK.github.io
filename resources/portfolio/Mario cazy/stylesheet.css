@@ -22,7 +22,6 @@ img {
     z-index: 0;
 }
 .arrow{
-	border: 1px solid red;
     width: 60px;
     height: 60px;
 	z-index: 500;
