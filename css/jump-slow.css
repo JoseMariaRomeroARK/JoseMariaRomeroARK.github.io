@@ -2,9 +2,6 @@
   but when the cursor leave takes 0.5s
   to iniciate a 0.3s transition to the original position*/
 a.jump-slow {
-  color:#000000;
-  margin:0;
-  padding: 0;
   position:relative;
   bottom: 0px;
   /*out transition*/
@@ -26,7 +23,6 @@ a.jump-slow:visited {
 }
 
 a.jump-slow:hover {
-  color:#000000;
   text-decoration: none;
   border-bottom: black solid 1px;
   bottom: 3px;  

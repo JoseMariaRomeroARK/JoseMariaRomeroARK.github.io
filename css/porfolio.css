@@ -15,4 +15,5 @@ iframe.frame{
     height: 400px;
     margin-top: 50px;
     margin-bottom: 30px;
+    box-shadow: lightblue 0px 5px 10px 2px;
 }

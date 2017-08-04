@@ -7,13 +7,10 @@ $(document).ready(function() {
     var level_info_col = [6,8,10,12,6,8,10,12];//number of alines in the row
     var level_info_row = [2,2,2,2,3,3,3,3];//number of rows in the level
     /*Game Start Call*/
-    $('#estadio').slideUp();
     palceCanon();
-    placeAliens();
-    aliens_alive();
     /*Game logic*/
     // alies 50=minleft
-    /*reset function*/
+    /*start-reset function*/
     $('#estadio').click(function(){
         shoots = 0;
         towards = true;
@@ -29,20 +26,22 @@ $(document).ready(function() {
      
     /*Keyup event (canon control)*/
     $(document).keyup(function(key) {
-    	$('p#hint').html(key.key+"="+parseInt(key.which,10));
+    	//$('p#hint').html(key.key+"="+parseInt(key.which,10));
 
         switch(parseInt(key.which,10)) {
 			// A,Left arrow key pressed
 			case 65:
 			case 37:
-                if ($('#canon').position().left>= 60) {//Left barrier
-                    target_move($('#canon'),"left");
+                //Left barrier
+                if ($('#canon').position().left>= 60) {
+                    target_move($('#canon'),"left",10);
                 }
 				break;
 			case 68:
 			case 39:
-                if (($('#canon').position().left + $('#canon').width())<= 690) {//Right barrier
-                    target_move($('#canon'),"right");
+                //Right barrier
+                if (($('#canon').position().left + $('#canon').width())<= ($('.game-container').width()-60)) {
+                    target_move($('#canon'),"right",10);
                 }
 				break;
             case 32:
@@ -67,28 +66,23 @@ $(document).ready(function() {
         $('#estadio').show(500);
     }
     /*Aliens and canon movement*/
-    function targets_move($targets,direction){
-        for (var i = 0; i <= $targets.length - 1; i++) {
-            var $target = $($targets[i]);
-            target_move($target,direction);
-        }
-    }
-    function target_move($target,direction){
+    function target_move($target,direction,speed){
         switch(direction) {
             case "left":
-                $target.animate({left: "-=15px"}, 'fast');
+                $target.animate({left: "-=15px"}, speed);
                 break;
             case "up":
-                $target.animate({top: "-=15px"}, 'fast');
+                $target.animate({top: "-=15px"}, speed);
                 break;
             case "right":
-                $target.animate({left: "+=15px"}, 'fast');
+                $target.animate({left: "+=15px"}, speed);
                 break;
             case "down":
-                $target.animate({top: "+=15px"}, 'fast');
+                $target.animate({top: "+=15px"}, speed);
                 break;
         }
     }
+
     /*Shoot logic 
     Create a "Shoot"
     Display the shoot
@@ -105,7 +99,7 @@ $(document).ready(function() {
         $('.game-container').append(image);
         var $image = $('#'+shoots);
         $image.animate({top: "0px"}, "slow");
-        /*self-destructive thread*/
+        /*self-destructive thread 20 times per second*/
         var thread = window.setInterval(function($target){
             var top_position = $target.position().top;
             var hit = false;
@@ -117,7 +111,7 @@ $(document).ready(function() {
                     break;
                 }
             }
-            if (hit || top_position<=10) {
+            if (hit || top_position<=0) {
                 $target.remove();
                 if ($hit != 0) {
                     $hit.remove();
@@ -127,7 +121,7 @@ $(document).ready(function() {
                 clearInterval(thread);
             }
             
-        },75,$image);
+        },50,$image);
        
     }
     /*Canon creation*/
@@ -152,8 +146,8 @@ $(document).ready(function() {
     function aliens_alive(){
         var move = window.setInterval(function(){
             var $aliens = $('.alien');
-            var left_max = 715;
-            var right_max = 20;
+            var left_max = $('.game-container').width();
+            var right_max = 0;
             var bottom_max = 0;
 
             for (var i = 0; i <= $aliens.length - 1; i++) {
@@ -173,26 +167,26 @@ $(document).ready(function() {
 
             }
             /*if any alien is touching the left or right edge*/
-            if (left_max <= 20 || right_max >= 715) {
+            if (left_max <= 30 || right_max >= ($('.game-container').width()-30)) {
                 towards = !towards;
-                targets_move($aliens,"down");
+                target_move($aliens,"down",'fast');
             }
-            /*if any alien is touching the bottom line*/
-            if (bottom_max >= 230 ) {
+            if (towards){ 
+                target_move($aliens,"right",'fast'); 
+            }else{ 
+                target_move($aliens,"left",'fast');
+            }
+            
+            /*if any alien is touching the bottom line or ther is no aliens (lose & win states)*/
+            if (bottom_max >= ($('.game-container').height()-70)) {
                 clearInterval(move);
                 lose();
-            }
-            if ($aliens.length ==0) {
+            }else if ($aliens.length ==0) {
                 clearInterval(move);
                 win();
             }
-            if (towards){ 
-                targets_move($aliens,"right"); 
-            }else{ 
-                targets_move($aliens,"left");
-            }
             
-        },500);
+        },750);
     }
     /*Hit-box logic*/
     function is_touching($target1,$target2){

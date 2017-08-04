@@ -4,7 +4,6 @@ function diplay_jobs(){
 	HTML_We.className = "row";
 	HTML_We.appendChild(create_title(experience_JSON.meta[0].title));
 	HTML_We.appendChild(create_category(experience_JSON.Programming,"Programming"));
-	HTML_We.appendChild(create_category(experience_JSON.Overall,"Overall"));
 }
 function create_title(text){
 	var hollow = document.createElement("H2");
@@ -15,7 +14,7 @@ function create_title(text){
 }
 function create_category(category,text){
 	var figure = document.createElement("FIGURE");
-	figure.className = "col-sm-6";
+	figure.className = "col-sm-12";
 
 	var h3 = document.createElement("H3");
 	h3.innerHTML = text;
@@ -62,12 +61,15 @@ function create_description(job){
 	span_date_icon.className = "glyphicon glyphicon-calendar"; 
 
 	var div_date = document.createElement("DIV");
-	div_date.className = "col-sm-4 date";
+	div_date.className = "col-sm-2 date";
 	div_date.appendChild(span_date_icon);
 	div_date.innerHTML = div_date.innerHTML +" "+ date;
 
 	var div_body = document.createElement("DIV");
-	div_body.className = "col-sm-8 body";
+	div_body.className = "col-sm-10 body";
+
+	var div_blank = document.createElement("DIV");
+	div_blank.className = "col-sm-2";
 	/*Creation "body"'s content*/
 	var span_company_icon = document.createElement("SPAN");
 	span_company_icon.className = "glyphicon glyphicon-user";
@@ -91,6 +93,7 @@ function create_description(job){
 	link.innerHTML = company.web;
 
 	var list = document.createElement("UL");
+	list.className = "col-sm-8";
 	for (var i = 0; i <= job.content[0].body.length -1; i++) {
 		var list_item = document.createElement("LI");
 		list_item.innerHTML = job.content[0].body[i].li;
